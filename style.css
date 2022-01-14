@@ -1,0 +1,42 @@
+body
+{
+	background-color: #000;
+}
+
+
+#contener1, #contener2, #contener3, #contener4
+{
+	display: flex;
+}
+
+
+.coverCarrousel{
+	border: 2px solid transparent;
+}
+
+.coverCarrousel:hover {
+	border-radius: 2px;
+	border: 2px solid #4CAF50;
+}
+
+
+.buttonCarrousel {
+  background-color: #000;
+  border: none;
+  color: #FFF;
+  margin: 0px 5px 0px 5px;
+  text-align: center;
+  font-size: 3em;
+}
+.buttonCarrousel:hover {
+	color: #FFF;
+	background-color: #122912;
+	border-radius: 2px;
+	border: 2px solid #4CAF50;
+}
+.buttonCarrousel:disabled{
+	color: #222024;
+	border-radius: 2px;
+	border: 2px solid transparent;
+	background-color: #000;
+}
