@@ -1,14 +1,17 @@
+import {Base} from "./base.js";
+import {Details} from "./details.js";
 
-class Carroussel {
-	#contener;
+
+export class Carroussel extends Base{
 	#previousURL;
 	#currentURL;
 	#nextURL;
 	#tab;
 
 
-	constructor(idContener, category){
-		this.#contener = document.getElementById(idContener);
+	constructor(idContainer, category){
+
+		super(idContainer);
 
 		this.#previousURL = null;
 		this.#currentURL = null;
@@ -17,34 +20,15 @@ class Carroussel {
 		this.#tab = [];
 	}
 
-		
-	async #fetchOnePage(url){
-
-	    try {
-			const response = await fetch(url);
-
-			if (!response.ok) {
-					throw new Error(`Erreur HTTP ! statut : ${response.status}`);
-			}
-
-			const data = await response.json();
-			return data;
-
-		} catch (error)	{
-			console.log(error);
-			throw new Error(`Erreur fetch ! statut : ${error}`);
-		}
-	}
-
-
+	
 	async #fetchTwoPages(){
 
-		const tab1 = await this.#fetchOnePage(this.#currentURL);
+		const tab1 = await super._fetchOnePage(this.#currentURL);
 		this.#previousURL = tab1.previous;
 
 		let tab2 = [];
 		if (tab1.next !== null){
-			tab2 = await this.#fetchOnePage(tab1.next);
+			tab2 = await super._fetchOnePage(tab1.next);
 
 			this.#nextURL = tab1.next;
 		} else {
@@ -81,16 +65,14 @@ class Carroussel {
 		this.#tab.splice(7, 3);
 
 		// Clear div
-		while (this.#contener.lastElementChild){
-			this.#contener.removeChild(this.#contener.lastElementChild);
-		}
+		super._clearContainer();
 
 		// Button left
 		const buttonLeft = this.#addButton("<", this.#previousURL === null);
 
 		// Add all pictures
 		for (const elem of this.#tab){
-				this.#addImage(elem.image_url, elem.title);
+				this.#addImage(elem.image_url, elem.title, elem.id);
 			}
 
 		// Button right
@@ -108,15 +90,21 @@ class Carroussel {
 	}
 
 
-	#addImage(image_url, title){
-
+	#addImage(image_url, title, idMovie){
+		
 		const elem = document.createElement('img');
 		elem.className = "coverCarrousel";
 		elem.src = image_url;
 		elem.alt = title;
 		elem.title = title;
 
-		this.#contener.appendChild(elem);
+		this._container.appendChild(elem);
+
+		elem.addEventListener('click', () => {
+
+						const myDetails = new Details(idMovie);
+						myDetails.showDetails();
+		});
 	}
 
 
@@ -127,11 +115,9 @@ class Carroussel {
 		elem.textContent = text;
 		elem.disabled = disabled;
 
-		this.#contener.appendChild(elem);
+		this._container.appendChild(elem);
 		return elem;
 	}
 
 }
-
-
 
