@@ -1,21 +1,27 @@
 
-import {Carroussel} from "./carrousel.js";
+import {BestMovie} from "./bestMovie.js";
+import {Caroussel} from "./carrousel.js";
 import {Details} from "./details.js"
 
 
 
-
-const car1 = new Carroussel("container1", "Drama");
-const car2 = new Carroussel("container2", "Biography");
-const car3 = new Carroussel("container3", "Romance");
-const car4 = new Carroussel("container4", "Crime");
+//const best = new BestMovie("bestMovie");
+//best.show();
 
 
-car1.next();
-car2.next();
-car3.next();
-car4.next();
 
+const car1 = new Caroussel("container1", "");
+car1.init();
+const car2 = new Caroussel("container2", "Biography");
+car2.init();
+const car3 = new Caroussel("container3", "Romance");
+car3.init();
+const car4 = new Caroussel("container4", "Crime");
+car4.init();
+
+
+
+// Allow to close details modal
 Details.addEventCloseDetails();
 
 

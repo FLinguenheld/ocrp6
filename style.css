@@ -7,29 +7,32 @@ html, body {
 	background-color: #000;
 }
 
+#bestMovie{
+	margin: auto;
+
+
+	background-image: linear-gradient(to right, #541354, transparent);
+	justify-content: center;
+}
 
 .container{
 	margin: auto;
 }
-
-
 #container1, #container2, #container3, #container4 {
 	display: flex;
 	justify-content: center;
 }
 
-
-.coverCarrousel{
+.coverCarousel{
 	border: 2px solid transparent;
 }
-
-.coverCarrousel:hover {
+.coverCarousel:hover {
 	border-radius: 2px;
 	border: 2px solid #4CAF50;
+	cursor: pointer;
 }
 
-
-.buttonCarrousel {
+.buttonCarousel {
   background-color: #000;
   border: none;
   color: #FFF;
@@ -37,14 +40,14 @@ html, body {
   text-align: center;
   font-size: 3em;
 }
-.buttonCarrousel:hover {
+.buttonCarousel:hover {
 	color: #FFF;
 	background-color: #122912;
 	border-radius: 2px;
 	border: 2px solid #4CAF50;
 	cursor: pointer;
 }
-.buttonCarrousel:disabled{
+.buttonCarousel:disabled{
 	color: #222024;
 	border-radius: 2px;
 	border: 2px solid transparent;
@@ -53,52 +56,63 @@ html, body {
 }
 
 
-
-
-
-/* −−−−−−−−−−−−− TEST modal −−−−−−−−−−−−−−−−−−−−−−−−−−−−
-
-
-/* Décrire l'animation */
-@keyframes slideDownFadeIN {
-    from {top:-100px;opacity: 0;}
-    to {top:0px;opacity:1;}
-}
-
+/* −−−−−−−−−−−−− DETAILS MODAL−−−−−−−−−−−−−−
 /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+#detailContainer{
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+	color: #FFF;
 }
 
 /* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+#detailContent{
+	background-color: #000;
+	border: 2px solid #4CAF50;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	width: 80%;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+#detailMain{
+	display: flex;
+	justify-content: center;
+
+	max-width: 100%;
+	margin: auto;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+#detailHeader{
+	background-color: #4CAF50;
+	text-align: center;
 }
+
+.DetailsBox{
+	background-color: #4CAF50;
+	margin: 5px;
+	padding: 5px;
+}
+.DetailsBox td{
+	padding: 7px;
+	text-align: right;
+}
+.DetailsBox .tdLeft{
+	text-align: left;
+}
+.DetailsBox li{
+	list-style: none;
+}
+.DetailsBox img{
+	object-fit: cover;
+	max-height: 100%;
+	max-width: 100%;
+}
+
