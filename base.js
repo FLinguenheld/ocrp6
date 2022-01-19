@@ -33,7 +33,10 @@ export class Base{
 	_addElem(container, type, text, className=null){
 
 		const elem = document.createElement(type);
-		this.#setClassName(elem, className);
+
+		if (className){
+			elem.className = className;
+		}
 
 		if (text){
 			const txt = document.createTextNode(text);
@@ -48,34 +51,22 @@ export class Base{
 	 * Then returns the object */
 	_addImage(container, image_url, title, className=null){
 		
-		const image = document.createElement('img');
-		this.#setClassName(image, className);
+		const image = this._addElem(container, 'img', null, className);
 		image.src = image_url;
 		image.alt = title;
 		image.title = title;
 
-		container.appendChild(image);
 		return image;
 	}
 
 	/* Adds a <button> in the container
 	 * Then returns the object */
-	_addButton(text, className=null){
+	_addButton(container, text, className=null){
 
-		const button = document.createElement('button');
-		this.#setClassName(button, className);
+		const button = this._addElem(container, 'button', null, className);
 		button.textContent = text;
 
-		this._container.appendChild(button);
 		return button;
-	}
-
-	/* Adds the attribute className
-	 * Only if not null */
-	#setClassName(elem, className=null){
-		if (className != null){
-			elem.className = className;
-		}
 	}
 
 	/* Removes all childrens in the container

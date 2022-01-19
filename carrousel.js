@@ -24,12 +24,12 @@ export class Caroussel extends Base{
 		this.#tab.splice(7, 3);
 
 		// Builds the carousel
-		const buttonLeft = this._addButton("<", "buttonCarousel");	
+		const buttonLeft = this._addButton(this._container, "<", "buttonCarousel");	
 
 		// Init the container for covers
 		this.#containerCovers = this._addElem(this._container, 'div', null, "ContainerCovers");
 
-		const buttonRight = this._addButton(">", "buttonCarousel");
+		const buttonRight = this._addButton(this._container, ">", "buttonCarousel");
 
 		// Adds buttons events --
 		buttonRight.addEventListener('click', () => {
