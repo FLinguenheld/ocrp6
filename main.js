@@ -10,13 +10,13 @@ import {Details} from "./details.js"
 
 
 
-const car1 = new Caroussel("container1", "");
+const car1 = new Caroussel("container1", "", "Films les mieux notés");
 car1.init();
-const car2 = new Caroussel("container2", "Biography");
+const car2 = new Caroussel("container2", "Biography", "Biographie");
 car2.init();
-const car3 = new Caroussel("container3", "Romance");
+const car3 = new Caroussel("container3", "Romance", "Romance");
 car3.init();
-const car4 = new Caroussel("container4", "Crime");
+const car4 = new Caroussel("container4", "Crime", "Crime");
 car4.init();
 
 

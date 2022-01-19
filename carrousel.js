@@ -12,12 +12,13 @@ export class Caroussel extends Base{
 	#urlCategory;
 	#tabImages;
 	#containerCovers;
+	#title;
 
-	constructor(idContainer, category){
+	constructor(idContainer, category, title){
 
 		super(idContainer);
+		this.#title = title;
 		this.#urlCategory = `${this._urlServer}?sort_by=-imdb_score&genre_contains=${category}`;
-
 		this.#tabImages = [];
 	}
 
@@ -32,13 +33,17 @@ export class Caroussel extends Base{
 		// Fetchs two pages and keeps only 7 covers ;(
 		await this.#fetchTwoPages();
 
-		// Builds the carousel --
-		const buttonLeft = Dom.addButton( "<", this._container, "buttonCarousel");	
+		// --
+		const containerHeader = Dom.addElem('div', this._container, "headerCarousel");
+		const containerSection = Dom.addElem('div', this._container, "sectionCarousel");
 
-		// Init the container for covers
-		this.#containerCovers = Dom.addElem('div', this._container, "ContainerCovers");
+		// --
+		Dom.addElemWithText('h1', this.#title, containerHeader, "titleCarousel");
 
-		const buttonRight = Dom.addButton(">", this._container, "buttonCarousel");
+		// --
+		const buttonLeft = Dom.addButton( "<", containerSection, "buttonCarousel");	
+		this.#containerCovers = Dom.addElem('div', containerSection, "ContainerCovers");
+		const buttonRight = Dom.addButton(">", containerSection, "buttonCarousel");
 
 		// Adds buttons events --
 		buttonRight.addEventListener('click', () => {
