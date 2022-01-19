@@ -1,4 +1,6 @@
 export class Base{
+	/* Regroups common variables and methods for carousel and details */
+
 	_urlServer;
 	_container;
 
@@ -7,7 +9,7 @@ export class Base{
 		this._container = document.getElementById(idContener);
 	}
 
-
+// −− FETCH −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 	/* Fetchs one page and convert in json
 	 * Returns the json table */
 	async _fetchOnePage(url){
@@ -27,60 +29,4 @@ export class Base{
 			throw new Error(`Erreur fetch ! statut : ${error}`);
 		}
 	}
-
-	/* Allows to add a new HTML element in the containerCover
-	 * You can add text and a class name */
-	_addElem(container, type, text, className=null){
-
-		const elem = document.createElement(type);
-
-		if (className){
-			elem.className = className;
-		}
-
-		if (text){
-			const txt = document.createTextNode(text);
-			elem.appendChild(txt);
-		}
-
-		container.appendChild(elem);
-		return elem;
-	}
-
-	/* Adds a <img> in the container
-	 * Then returns the object */
-	_addImage(container, image_url, title, className=null){
-		
-		const image = this._addElem(container, 'img', null, className);
-		image.src = image_url;
-		image.alt = title;
-		image.title = title;
-
-		return image;
-	}
-
-	/* Adds a <button> in the container
-	 * Then returns the object */
-	_addButton(container, text, className=null){
-
-		const button = this._addElem(container, 'button', null, className);
-		button.textContent = text;
-
-		return button;
-	}
-
-	/* Removes all childrens in the container
-	 * If it is null, it will clear _container */
-	_clearContainer(container=null){
-
-		if (container === null){
-			container = this._container;
-		}
-
-		while (container.firstChild){
-			container.removeChild(container.firstChild);
-		}
-	}
-
 }
-

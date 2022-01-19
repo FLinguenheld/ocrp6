@@ -1,35 +1,44 @@
 import {Base} from "./base.js";
 import {Details} from "./details.js";
+import {Dom} from "./dom.js";
 
 
 export class Caroussel extends Base{
-	#currentURL;
-	#url;
-	#tab;
+	/* Allow to build a carousel : create a new object, init it
+	 * It will save the first covers of the category and show it in the container.
+	 * The user can clic on buttons to move the carousel (see next / previous) and 
+	 * also clic on cover to show a modal with etails (see class Details) */
+
+	#urlCategory;
+	#tabImages;
 	#containerCovers;
 
 	constructor(idContainer, category){
 
 		super(idContainer);
-		this.#url = `${this._urlServer}?sort_by=-imdb_score&genre_contains=${category}`;
+		this.#urlCategory = `${this._urlServer}?sort_by=-imdb_score&genre_contains=${category}`;
 
-		this.#tab = [];
+		this.#tabImages = [];
 	}
 
 
+// −− INITIALISATION −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+	/* Here because the constructor can't be async.
+	 * This method is mandatory.
+	 * It fetchs the API, builds the buttons (with events) and the container for covers.
+	 * It also launches a build to fill the container */
 	async init(){
 
 		// Fetchs two pages and keeps only 7 covers ;(
 		await this.#fetchTwoPages();
-		this.#tab.splice(7, 3);
 
-		// Builds the carousel
-		const buttonLeft = this._addButton(this._container, "<", "buttonCarousel");	
+		// Builds the carousel --
+		const buttonLeft = Dom.addButton( "<", this._container, "buttonCarousel");	
 
 		// Init the container for covers
-		this.#containerCovers = this._addElem(this._container, 'div', null, "ContainerCovers");
+		this.#containerCovers = Dom.addElem('div', this._container, "ContainerCovers");
 
-		const buttonRight = this._addButton(this._container, ">", "buttonCarousel");
+		const buttonRight = Dom.addButton(">", this._container, "buttonCarousel");
 
 		// Adds buttons events --
 		buttonRight.addEventListener('click', () => {
@@ -43,13 +52,17 @@ export class Caroussel extends Base{
 		this.#build();
 	}
 
-
-	/* Fetches two pages by using the 'previous' and 'next' fields in the json retun	
-	 * Concats both and return an array of 10 movies (if there is a next page)
-	 * Saved the next and previous url */
+// −− FETCH −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+	/* Fetches two pages by using the 'next' fields in the json retun	
+	 * Concats both and spice the array of 10 movies (if there is a next page)
+	 * to keep 7 movies as ask by the customer
+	 * Then, it loop in the tab to create an array of object dom (image)
+	 * This array will be use by 'build()', it allows avoid a new
+	 * dom creation each time with events */
 	async #fetchTwoPages(){
 
-		const tab1 = await super._fetchOnePage(this.#url);
+		let tab = [];
+		const tab1 = await super._fetchOnePage(this.#urlCategory);
 
 		// Second page ? (five movies per page)
 		let tab2 = [];
@@ -57,44 +70,52 @@ export class Caroussel extends Base{
 			tab2 = await super._fetchOnePage(tab1.next);
 		}
 
-		this.#tab = tab1.results.concat(tab2.results);
+		tab = tab1.results.concat(tab2.results);
+		tab.splice(7, 3);							// 7 -> customer request
+
+		// Fill #tabImages with dom objects
+		for (const elem of tab){
+
+				const image = Dom.addImage(elem.image_url, `Couverture de ${elem.title}`,
+										   elem.title, null, "coverCarousel");
+
+				// Adds event to clic
+				Details.addEventOpenModal(image, elem.id, elem.imdb_url);
+
+				this.#tabImages.push(image);
+		}
 	}
 
-	/* Update this.tab by fetching two pages on the API
+// −− NAVIGATION −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+	/* Moves the first element to the end of array
 	 * Then, launches this.build to update the carousel */
 	async next(){
-		const cover = this.#tab.shift();
-		this.#tab.push(cover);
+		const cover = this.#tabImages.shift();
+		this.#tabImages.push(cover);
 
 		this.#build();
 	}
 
-	/* Update this.tab by fetching two pages on the API
+	/* Moves the last element to the first place
 	 * Then, launches this.build to update the carousel */
 	async previous(){
-		const cover = this.#tab.pop();
-		this.#tab.unshift(cover);
+		const cover = this.#tabImages.pop();
+		this.#tabImages.unshift(cover);
 
 		this.#build();
 	}
 
-	/* Builds the carousel with 7th first movies in this.tab
-	 * adds covers and buttons withs events to allow to change page or
-	 * to open details */
+// −− BUILDING −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+	/* Clears the container covers, then loop in the array to 
+	 * add the first four img to the container */
 	async #build(){
 
 		// Clear div
-		super._clearContainer(this.#containerCovers);
+		Dom.clearContainer(this.#containerCovers);
 
 		// Adds all pictures
 		for (let i=0; i < 4; i++){
-				const image = this._addImage(this.#containerCovers, this.#tab[i].image_url,
-											 this.#tab[i].title, "coverCarousel");
-
-				// Adds event to clic
-				Details.addEventOpenModal(image, this.#tab[i].id, this.#tab[i].imdb_url);
+				this.#containerCovers.appendChild(this.#tabImages[i]);
 			}
 		}
 }
-
-
