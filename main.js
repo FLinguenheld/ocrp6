@@ -5,8 +5,8 @@ import {Details} from "./details.js"
 
 
 
-//const best = new BestMovie("bestMovie");
-//best.show();
+const best = new BestMovie("bestMovie");
+best.show();
 
 
 
@@ -22,7 +22,8 @@ car4.init();
 
 
 // Allow to close details modal
-Details.addEventCloseDetails();
+Details.addEventCloseDetails()
+
 
 
 

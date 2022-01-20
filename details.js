@@ -67,40 +67,43 @@ export class Details extends Base{
 		const tab = await super._fetchOnePage(this._urlServer + this.#idMovie);
 
 		// Creates then fills new div 
-		const containerCover = Dom.addElem('div', this.#containerMain, 'DetailsBox');
-		const containerFirst = Dom.addElem('div', this.#containerMain, 'DetailsBox');
-		const containerSecond = Dom.addElem('div', this.#containerMain, 'DetailsBox');
-		const containerThird = Dom.addElem('div', this.#containerMain, 'DetailsBox');
+		const containerCover = Dom.addElem('div', this.#containerMain, 'detailsBox');
+		const containerFirst = Dom.addElem('div', this.#containerMain, 'detailsBox');
+		const subContainer = Dom.addElem('div', containerFirst, 'detailsBox2');
+		const containerSecond = Dom.addElem('div', this.#containerMain, 'detailsBox');
 
 		// Title <a><h1>--
-		const link = Dom.addLink(this.#urlIMDB, this.#containerHead);
+		const link = Dom.addLink(this.#urlIMDB, this.#containerHead, 'detailsBoxTitle');
 		Dom.addElemWithText('h1', tab.title, link);
 
 		// Add cover (img in a div for the flexbox)
 		Dom.addImage(tab.image_url, tab.title, tab.title, containerCover);
 
-		// First part -- 
+		// Map to build tables
 		let myMap = new Map();
 
+		// Rank--
+		myMap.set('Box office', tab.worldwide_gross_income);
+		myMap.set('Score IMDB', tab.imdb_score);
+		myMap.set('Classement', tab.rated);
+		Dom.addTable(myMap, subContainer, null, null, null, 'tdLeft', 'tdRight');
+
+		// Infos --
+		myMap.clear();
 		myMap.set('Genre', tab.genres);
 		myMap.set('Date de sortie', tab.date_published);
 		myMap.set('Durée', tab.duration);
 		myMap.set("Pays d'origine", tab.countries);
 		Dom.addTable(myMap, containerFirst, null, null, null, 'tdLeft', 'tdRight');
 
-		// Second --
+		// Workers --
 		myMap.clear();
 		myMap.set('Réalisateurs', tab.directors);
 		myMap.set('Auteurs', tab.writers);
 		myMap.set('Acteurs', tab.actors);
 		Dom.addTable(myMap, containerSecond, null, null, null, 'tdLeft', 'tdRight');
 
-		// Third --
-		myMap.clear();
-		myMap.set('Box office', tab.worldwide_gross_income);
-		myMap.set('Score IMDB', tab.imdb_score);
-		myMap.set('Classement', tab.rated);
-		Dom.addTable(myMap, containerThird, null, null, null, 'tdLeft', 'tdRight');
+
 
 		// Abstract -- 
 		Dom.addElemWithText('p', tab.long_description, this.#containerFoot);

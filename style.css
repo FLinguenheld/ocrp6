@@ -1,24 +1,57 @@
 html, body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
 
 	background-color: #000;
+	color: #FFF;
 }
 
-#bestMovie{
-	margin: auto;
+body{
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
 
-	background-image: linear-gradient(to right, #541354, transparent);
+
+/* −− BEST MOVIE −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
+#bestMovie{
+	display: flex;
+
+	/*background-image: linear-gradient(to right, #541354, transparent);*/
 	justify-content: center;
+}
+
+#bestText{
+	width: 50%;
+	text-align: right;
+	padding-right: 50px;
+}
+#bestText p, #bestText h1{
+	margin-left: auto; 
+	margin-right: 0;
+	width: 250px;
+}
+
+#bestText button{
+	border: 2px solid transparent;
+}
+#bestText button:hover{
+	border-radius: 2px;
+	border: 2px solid #4CAF50;
+	cursor: pointer;
+}
+
+
+
+#bestCover{
+	width: 50%;
+}
+#bestCover img{
+	width: 250px;
 }
 
 /* −− CAROUSEL −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
 .container{
-	transform: scale(0.8);
-
-	margin: auto;
+	margin: 0px;
+	padding: 0px;
 }
 .headerCarousel{
 	justify-content: center;
@@ -28,7 +61,7 @@ html, body {
 	padding: 0px;
 	color: #FFF;
 
-	font-size: 1.5em;
+	font-size: 1.3em;
 	text-align: center;
 }
 
@@ -47,6 +80,7 @@ html, body {
 .coverCarousel{
 	/*transform: scale(0.8);*/
 	border: 2px solid transparent;
+	width: 130px;
 }
 .coverCarousel:hover {
 	border-radius: 2px;
@@ -83,7 +117,7 @@ html, body {
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 
 	color: #FFF;
 }
@@ -97,37 +131,41 @@ html, body {
 	width: 80%;
 }
 
+#detailHeader{
+	text-align: center;
+	background-color: #122912;
+}
+.detailsBoxTitle{
+	color: #FFF;
+	text-decoration:none; 
+}
+
+
 #detailMain{
 	display: flex;
 	justify-content: center;
-
-	max-width: 100%;
-	margin: auto;
 }
-
-#detailHeader{
-	background-color: #4CAF50;
-	text-align: center;
-}
-
-.DetailsBox{
-	background-color: #4CAF50;
+.detailsBox{
+	background-color: #122912;
 	margin: 5px;
+	color: #FFF;
 	padding: 5px;
 }
-.DetailsBox td{
+.detailsBox2{
+	background-color: #1D421D;
+}
+.detailsBox td{
 	padding: 7px;
 	text-align: right;
+
+	width: 100%;
 }
-.DetailsBox .tdLeft{
+.detailsBox .tdLeft{
 	text-align: left;
 }
-.DetailsBox li{
+.detailsBox li{
 	list-style: none;
 }
-.DetailsBox img{
-	object-fit: cover;
-	max-height: 100%;
-	max-width: 100%;
+.detailsBox img{
+	width: 280px;
 }
-

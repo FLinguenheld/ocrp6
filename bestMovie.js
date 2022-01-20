@@ -1,41 +1,37 @@
 import {Base} from "./base.js";
 import {Details} from "./details.js";
+import {Dom} from "./dom.js"
 
 
 export class BestMovie extends Base{
-
+	#containerText;
+	#containerCover;
 
 	constructor(idContainer){
 
 		super(idContainer);
+		this.#containerText = document.getElementById('bestText');
+		this.#containerCover = document.getElementById('bestCover');
 	}
-
 
 	async show(){
 
-
-		console.log(`${this._urlSever}&sort_by=-imdb_score`);
-
-		const tab = await super._fetchOnePage(`${this._urlSever}?sort_by=-imdb_score`);
+		// Fetches --
+		const tab = await super._fetchOnePage(`${this._urlServer}?sort_by=-imdb_score`);
 		const movie = tab.results[0];
 
-		// Cover
-		let container = document.getElementById('bestMovie');
-		//container.setAttribute('background-image', `url('${movie.image_url}')`);
-		container.style.backgroundImage = `linear-gradient(to left, transparent, black),
-											url('${movie.image_url}')`;
+		const movieDetails = await super._fetchOnePage(`${this._urlServer}${movie.id}`);
 
-		const image = this._addImage(movie.image_url, tab.title);
-		Details.addEventOpenModal(image, movie.id);
+		// Text part --
+		Dom.addElemWithText('h1', movie.title, this.#containerText);
 
-		// Title
-		
-		
-		// Abstract
+		const button = Dom.addButton("Details", this.#containerText);
+		Dom.addElemWithText('p', movieDetails.description, this.#containerText);
+	
+		Details.addEventOpenModal(button, movie.id, movie.imdb_url);
 
+		// Cover --
+		const image = Dom.addImage(movie.image_url, `Couverture de ${movie.title}`,
+										   movie.title, this.#containerCover);
 	}
-
-
-
-
 }
