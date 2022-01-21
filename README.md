@@ -17,7 +17,7 @@ une fenêtre modale contenant les détails du film.
 
 ****
 ### Installation
-#### 1. JUSTSTREAMIT
+##### 1. JUSTSTREAMIT
 
 Rendez vous dans le dossier de votre choix puis lancez un terminal.  
 Clonez le dossier depuis GitHub avec la commande :  
@@ -26,7 +26,7 @@ Clonez le dossier depuis GitHub avec la commande :
 
 Pour pouvoir afficher le fichier *juststreamit.html*, **vous devez préalablement lancer l'API et un serveur web en arrière plan.**
 
-#### 2. API
+##### 2. API
 
 Rendez vous sur la page suivante et suivez les étapes indiquées pour installer l'API.
 
@@ -41,7 +41,7 @@ Puis lancez l'API avec la commande :
 
 >python3 manage.py runserver
 
-#### 3. SERVEUR WEB
+##### 3. SERVEUR WEB
 
 Pour afficher correctement le site, un serveur web est recommandé, vous pouvez utiliser python en
 ouvrant un terminal dans le dossier du projet.  
