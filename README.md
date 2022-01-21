@@ -5,7 +5,7 @@ Développez une interface utilisateur pour une application web Python
 ![Logo FLinguenheld](https://raw.githubusercontent.com/FLinguenheld/ocrp6/main/Forelif.png "Pouet")
 
 ****
-## Description
+### Description
 L'objectif de ce projet est de comprendre le fonctionnement de la partie front-end en développant un site permettant de
 visualiser un classement de films.  
 
@@ -16,7 +16,7 @@ L'utilisateur a la possibilité de faire défiler les couvertures et de cliquer 
 une fenêtre modale contenant les détails du film.
 
 ****
-## Installation
+### Installation
 #### 1. JUSTSTREAMIT
 
 Rendez vous dans le dossier de votre choix puis lancez un terminal.  
