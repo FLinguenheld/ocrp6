@@ -49,5 +49,7 @@ Executez la commande suivante :
 
 >python3 -m http.server 7800
 
-Cette commande lance un serveur local sur le port 7800. Vous pouvez maintenant ouvrir le fichier **juststreamit.html** en double cliquant dessus.
-Le site s'affichera dans votre navigateur web.
+Cette commande lance un serveur local sur le port 7800.  
+Ouvrez votre navigateur web et écrivez l'adresse suivante pour afficher le site :
+
+>http://localhost:7800/juststreamit.html
