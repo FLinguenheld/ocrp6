@@ -2,7 +2,7 @@
 OpenClassRooms Projet 6  
 Développez une interface utilisateur pour une application web Python
 
-![Logo Just Stream It](https://raw.githubusercontent.com/FLinguenheld/ocrp6/main/.png "Pouet")
+![Logo Just Stream It](https://raw.githubusercontent.com/FLinguenheld/ocrp6/main/juststreamit.png "Logo")
 ![Logo FLinguenheld](https://raw.githubusercontent.com/FLinguenheld/ocrp6/main/forelif.png "Pouet")
 
 ****
