@@ -14,14 +14,16 @@ export class Caroussel extends Base{
 	#containerCovers;
 	#title;
 	#numberToDisplay;
+	#ignoreFirst;
 
-	constructor(idContainer, category, title){
+	constructor(idContainer, category, title, ignoreFirst=false){
 
 		super(idContainer);
 		this.#title = title;
 		this.#urlCategory = `${this._urlServer}?sort_by=-imdb_score&genre_contains=${category}`;
 		this.#tabImages = [];
 		this.#numberToDisplay = 0;		// Covers displayed by the carousel
+		this.#ignoreFirst = ignoreFirst;
 	}
 
 // −− CAROUSEL WIDTH −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
@@ -113,7 +115,14 @@ export class Caroussel extends Base{
 		}
 
 		tab = tab1.results.concat(tab2.results);
-		tab.splice(7, 3);							// 7 -> customer request
+
+		// Removes first movie if asking
+		if (this.#ignoreFirst){
+			tab.shift();	
+		}
+
+		// Keeps only seven movies (customer request)
+		tab.splice(7, 3);
 
 		// Fill #tabImages with dom objects
 		for (const elem of tab){

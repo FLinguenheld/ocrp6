@@ -52,11 +52,6 @@ export class Details extends Base{
 	}
 
 
-
-	#addCover(){
-
-	}
-
 // −− SHOW / BUILD −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 	/* This method builds and show the modal div deatails
 	 * It clears the containers, fetchs the movie page, turn the div attribute display to block
@@ -80,19 +75,20 @@ export class Details extends Base{
 
 
 		// Cover on the left according the window width
+		let containerFirst = null;				// Have to be created after cover
 		if (window.innerWidth > 600){
 			const containerCover = Dom.addElem('div', this.#containerMain, 'detailBox');
 			Dom.addImage(tab.image_url, tab.title, tab.title, containerCover);
-		}
 
-		const containerFirst = Dom.addElem('div', this.#containerMain, 'detailBox');
+			containerFirst = Dom.addElem('div', this.#containerMain, 'detailBox');
 
-		// Add cover in the first div for small window
-		if (window.innerWidth <= 600){
+		// Or in containerFirst with rank and infos
+		} else{
+			containerFirst = Dom.addElem('div', this.#containerMain, 'detailBox');
 			Dom.addImage(tab.image_url, tab.title, tab.title, containerFirst);
 		}
 
-		// -−
+		// --
 		const subContainer = Dom.addElem('div', containerFirst, 'detailBox2');
 		const containerSecond = Dom.addElem('div', this.#containerMain, 'detailBox');
 

@@ -9,7 +9,7 @@ const best = new BestMovie("bestMovie");
 best.show();
 
 
-const car1 = new Caroussel("container1", "", "Films les mieux notés");
+const car1 = new Caroussel("container1", "", "Films les mieux notés", true);
 car1.init();
 const car2 = new Caroussel("container2", "Biography", "Biographie");
 car2.init();
