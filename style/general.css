@@ -1,0 +1,42 @@
+html, body {
+
+	background-color: #000;
+	color: #FFF;
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+/* −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
+
+@media all and (min-width: 1000px){
+
+body{
+	margin-top: 25px;
+}
+}
+
+@media all and (max-width: 1000px) and (min-width: 800px){
+
+body{
+	margin-top: 13px;
+}
+}
+
+@media all and (max-width: 800px) and (min-width: 600px){
+
+body{
+	margin-top: 8px;
+}
+}
+
+@media all and (max-width: 600px){
+
+body{
+	margin-top: 3px;
+}
+}

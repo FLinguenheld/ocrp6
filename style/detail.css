@@ -1,0 +1,180 @@
+/* Modal (background) */
+#detailContainer{
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+
+	color: #FFF;
+}
+
+/* Modal Content/Box */
+#detailContent{
+	background-color: #000;
+	border: 2px solid #4CAF50;
+}
+
+#detailHeader{
+	text-align: center;
+	background-color: #122912;
+}
+.detailBoxTitle{
+	color: #FFF;
+	text-decoration:none; 
+}
+
+
+#detailMain{
+	display: flex;
+	justify-content: center;
+}
+.detailBox{
+	background-color: #122912;
+	color: #FFF;
+}
+.detailBox2{
+	background-color: #1D421D;
+}
+.detailBox td{
+	text-align: right;
+	width: 100%;
+}
+.detailBox .tdLeft{
+	text-align: left;
+}
+.detailBox ul{
+	padding: 2px;
+}
+.detailBox li{
+	list-style: none;
+}
+.detailBox img{
+	width: 280px;
+}
+
+
+
+/* −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
+
+@media all and (min-width: 1000px){
+
+	#detailContent{
+		padding: 20px;
+		width: 80%;
+		margin: 15% auto;
+	}
+
+	#detailHeader{
+		font-size: 1.2em;
+	}
+	.detailBox{
+		font-size: 1.2em;
+		margin: 7px;
+		padding: 7px;
+	}
+	.detailBox td{
+		padding: 11px;
+	}
+	.detailBox .tdRight{
+		min-width: 90px;
+	}
+	.detailBox img{
+		width: 290px;
+	}
+	#detailFoot p{
+		font-size: 1.2em;
+	}
+}
+
+@media all and (max-width: 1000px) and (min-width: 800px){
+
+	#detailContent{
+		padding: 15px;
+		width: 85%;
+		margin: 07% auto;
+	}
+	#detailHeader{
+		font-size: 1.0em;
+	}
+	.detailBox{
+		font-size: 1.0em;
+		margin: 5px;
+		padding: 5px;
+	}
+	.detailBox td{
+		padding: 8px;
+	}
+	.detailBox .tdRight{
+		min-width: 80px;
+	}
+	.detailBox img{
+		width: 260px;
+	}
+	#detailFoot p{
+		font-size: 1.0em;
+	}
+}
+
+@media all and (max-width: 800px) and (min-width: 600px){
+
+	#detailContent{
+		padding: 10px;
+		width: 90%;
+		margin: 10% auto;
+	}
+	#detailHeader{
+		font-size: 0.8em;
+	}
+	.detailBox{
+		font-size: 0.8em;
+		margin: 3px;
+		padding: 3px;
+	}
+	.detailBox td{
+		padding: 5px;
+	}
+	.detailBox .tdRight{
+		min-width: 60px;
+	}
+	.detailBox img{
+		width: 200px;
+	}
+	#detailFoot p{
+		font-size: 0.8em;
+	}
+}
+
+@media all and (max-width: 600px){
+
+	#detailContent{
+		padding: 5px;
+		width: 95%;
+		margin: 15% auto;
+	}
+	#detailHeader{
+		font-size: 0.6em;
+	}
+	.detailBox{
+		font-size: 0.62em;
+		margin: 1px;
+		padding: 1px;
+	}
+	.detailBox td{
+		padding: 2px;
+	}
+	.detailBox .tdRight{
+		min-width: 40px;
+	}
+	.detailBox img{
+		width: 100px;
+	}
+	#detailFoot p{
+		font-size: 0.62em;
+	}
+}

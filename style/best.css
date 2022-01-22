@@ -1,0 +1,101 @@
+
+#bestMovie{
+	display: flex;
+	justify-content: center;
+}
+
+
+#bestText{
+	width: 50%;
+	text-align: right;
+}
+#bestText p, #bestText h1{
+	margin-left: auto; 
+	margin-right: 0;
+	width: 250px;
+}
+
+#bestText button{
+	border: 2px solid transparent;
+}
+#bestText button:hover{
+	border-radius: 2px;
+	border: 2px solid #4CAF50;
+	cursor: pointer;
+}
+
+#bestCover{
+	width: 50%;
+}
+
+
+
+
+/* −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
+
+@media all and (min-width: 1000px){
+
+	#bestText p, #bestText h1{
+		width: 350px;
+		padding-right: 50px;
+		font-size: 1.2em;
+	}
+	#bestText button{
+		margin-right: 50px;
+		font-size: 1.3em;
+	}
+	#bestCover img{
+		width: 250px;
+	}
+}
+
+@media all and (max-width: 1000px) and (min-width: 800px){
+
+	#bestText p, #bestText h1{
+		width: 300px;
+		padding-right: 35px;
+		font-size: 1em;
+	}
+	#bestText button{
+		margin-right: 35px;
+		font-size: 1em;
+	}
+
+	#bestCover img{
+		width: 200px;
+	}
+}
+
+@media all and (max-width: 800px) and (min-width: 600px){
+
+	#bestText p, #bestText h1{
+		width: 180px;
+		padding-right: 20px;
+		font-size: 0.85em;
+	}
+	#bestText button{
+		margin-right: 20px;
+		font-size: 0.85em;
+	}
+
+	#bestCover img{
+		width: 160px;
+	}
+}
+
+@media all and (max-width: 600px){
+
+	#bestText p, #bestText h1{
+		width: 130px;
+		padding-right: 10px;
+		font-size: 0.7em;
+	}
+	#bestText button{
+		margin-right: 10px;
+		font-size: 0.7em;
+	}
+
+	#bestCover img{
+		width: 110px;
+	}
+}

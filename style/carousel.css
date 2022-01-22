@@ -1,0 +1,116 @@
+.container{
+	margin: 0px;
+	padding: 0px;
+}
+.headerCarousel{
+	justify-content: center;
+}
+.headerCarousel h1{
+	margin: 0px;
+	padding: 0px;
+	color: #FFF;
+
+	text-align: center;
+}
+
+.sectionCarousel{
+	display: flex;
+	justify-content: center;
+}
+#container1, #container2, #container3, #container4 {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.coverCarousel{
+	border: 2px solid transparent;
+}
+.coverCarousel:hover {
+	border-radius: 2px;
+	border: 2px solid #4CAF50;
+	cursor: pointer;
+}
+
+.buttonCarousel {
+  background-color: #000;
+  border: none;
+  color: #FFF;
+  border: 2px solid transparent;
+  text-align: center;
+}
+.buttonCarousel:hover {
+	color: #FFF;
+	background-color: #122912;
+	border-radius: 2px;
+	border: 2px solid #4CAF50;
+	cursor: pointer;
+}
+
+
+
+/* −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
+
+@media all and (min-width: 1000px){
+
+	.headerCarousel h1{
+		font-size: 1.3em;
+	}
+	#container1, #container2, #container3, #container4 {
+		margin-top: 10px;
+	}
+	.coverCarousel{
+		width: 140px;
+	}
+	.buttonCarousel {
+		font-size: 3em;
+	}
+}
+
+@media all and (max-width: 1000px) and (min-width: 800px){
+
+	.headerCarousel h1{
+		font-size: 1.1em;
+	}
+	#container1, #container2, #container3, #container4 {
+		margin-top: 9px;
+	}
+	.coverCarousel{
+		width: 130px;
+	}
+	.buttonCarousel {
+		font-size: 2em;
+	}
+}
+
+@media all and (max-width: 800px) and (min-width: 600px){
+
+	.headerCarousel h1{
+		font-size: 1em;
+	}
+	#container1, #container2, #container3, #container4 {
+		margin-top: 5px;
+	}
+	.coverCarousel{
+		width: 110px;
+	}
+	.buttonCarousel {
+		font-size: 1.5em;
+	}
+}
+
+@media all and (max-width: 600px){
+
+	.headerCarousel h1{
+		font-size: 0.8em;
+	}
+	#container1, #container2, #container3, #container4 {
+		margin-top: 2px;
+	}
+	.coverCarousel{
+		width: 90px;
+	}
+	.buttonCarousel {
+		font-size: 1em;
+	}
+}
