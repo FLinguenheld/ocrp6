@@ -23,7 +23,7 @@ une fenêtre modale contenant les détails du film.
 Rendez-vous dans le dossier de votre choix puis lancez un terminal.  
 Clonez le dossier depuis GitHub avec la commande :  
 
->https://github.com/FLinguenheld/ocrp6
+>git clone https://github.com/FLinguenheld/ocrp6
 
 Pour pouvoir afficher le fichier *juststreamit.html*, **vous devez préalablement lancer l'API et un serveur web en arrière plan.**
 
