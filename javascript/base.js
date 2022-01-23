@@ -1,3 +1,5 @@
+import {Dom} from "./dom.js";
+
 export class Base{
 	/* Regroups common variables and methods for carousel and details */
 
@@ -26,6 +28,7 @@ export class Base{
 
 		} catch (error)	{
 			console.log(error);
+			Dom.addElemWithText('p', "Echec de la connexion à l'API", this._container, "error");
 			throw new Error(`Erreur fetch ! statut : ${error}`);
 		}
 	}

@@ -9,34 +9,50 @@ body{
 	flex-direction: column;
 }
 
+.error{
+	text-align: center;
+}
 
 
 /* −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−− */
 
 @media all and (min-width: 1000px){
 
-body{
-	margin-top: 25px;
-}
+	body{
+		margin-top: 25px;
+	}
+	.error{
+		font-size: 1em;
+	}
+
 }
 
 @media all and (max-width: 1000px) and (min-width: 800px){
 
-body{
-	margin-top: 13px;
-}
+	body{
+		margin-top: 13px;
+	}
+	.error{
+		font-size: 1em;
+	}
 }
 
 @media all and (max-width: 800px) and (min-width: 600px){
 
-body{
-	margin-top: 8px;
-}
+	body{
+		margin-top: 8px;
+	}
+	.error{
+		font-size: 0.85em;
+	}
 }
 
 @media all and (max-width: 600px){
 
-body{
-	margin-top: 3px;
-}
+	body{
+		margin-top: 3px;
+	}
+	.error{
+		font-size: 0.6em;
+	}
 }

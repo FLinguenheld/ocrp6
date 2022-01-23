@@ -20,7 +20,7 @@ une fenêtre modale contenant les détails du film.
 ### Installation
 ##### 1. JUSTSTREAMIT
 
-Rendez vous dans le dossier de votre choix puis lancez un terminal.  
+Rendez-vous dans le dossier de votre choix puis lancez un terminal.  
 Clonez le dossier depuis GitHub avec la commande :  
 
 >https://github.com/FLinguenheld/ocrp6

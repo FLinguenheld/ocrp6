@@ -38,11 +38,16 @@
 	#bestText p, #bestText h1{
 		width: 350px;
 		padding-right: 50px;
-		font-size: 1.1em;
+	}
+	#bestText p{
+		font-size: 1.0em;
+	}
+	#bestText h1{
+		font-size: 1.2em;
 	}
 	#bestText button{
 		margin-right: 50px;
-		font-size: 1.3em;
+		font-size: 1.0em;
 	}
 	#bestCover img{
 		width: 250px;
@@ -54,13 +59,17 @@
 	#bestText p, #bestText h1{
 		width: 300px;
 		padding-right: 35px;
-		font-size: 1em;
+	}
+	#bestText p{
+		font-size: 1.0em;
+	}
+	#bestText h1{
+		font-size: 1.2em;
 	}
 	#bestText button{
 		margin-right: 35px;
-		font-size: 1em;
+		font-size: 0.9em;
 	}
-
 	#bestCover img{
 		width: 200px;
 	}
@@ -71,13 +80,18 @@
 	#bestText p, #bestText h1{
 		width: 180px;
 		padding-right: 20px;
+	}
+	#bestText p{
 		font-size: 0.85em;
 	}
-	#bestText button{
-		margin-right: 20px;
-		font-size: 0.85em;
+	#bestText h1{
+		font-size: 1.0em;
 	}
 
+	#bestText button{
+		margin-right: 20px;
+		font-size: 0.80em;
+	}
 	#bestCover img{
 		width: 160px;
 	}
@@ -88,13 +102,18 @@
 	#bestText p, #bestText h1{
 		width: 130px;
 		padding-right: 10px;
+	}
+	#bestText p{
 		font-size: 0.7em;
 	}
-	#bestText button{
-		margin-right: 10px;
-		font-size: 0.7em;
+	#bestText h1{
+		font-size: 0.8em;
 	}
 
+	#bestText button{
+		margin-right: 10px;
+		font-size: 0.65em;
+	}
 	#bestCover img{
 		width: 110px;
 	}
