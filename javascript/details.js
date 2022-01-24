@@ -96,25 +96,27 @@ export class Details extends Base{
 		// Map to build tables
 		let myMap = new Map();
 
-		// Rank--
+		// Rank (null values are ignored by Dom.addTable) --
 		myMap.set('Box office', tab.worldwide_gross_income);
 		myMap.set('Score IMDB', tab.imdb_score);
-		myMap.set('Classement', tab.rated);
+		if (typeof tab.rated === 'string' && !tab.rated.includes('Not rated')){
+			myMap.set('Classement', tab.rated);
+		}
 		Dom.addTable(myMap, subContainer, null, null, null, 'tdLeft', 'tdRight');
 
 		// Infos --
 		myMap.clear();
-		myMap.set('Genre', tab.genres);
+		myMap.set('Genre', tab.genres.sort());
 		myMap.set('Date de sortie', tab.date_published);
 		myMap.set('Durée', tab.duration);
-		myMap.set("Pays d'origine", tab.countries);
+		myMap.set("Pays d'origine", tab.countries.sort());
 		Dom.addTable(myMap, containerFirst, null, null, null, 'tdLeft', 'tdRight');
 
 		// Workers --
 		myMap.clear();
-		myMap.set('Réalisateurs', tab.directors);
-		myMap.set('Auteurs', tab.writers);
-		myMap.set('Acteurs', tab.actors);
+		myMap.set('Réalisateurs', tab.directors.sort());
+		myMap.set('Auteurs', tab.writers.sort());
+		myMap.set('Acteurs', tab.actors.sort());
 		Dom.addTable(myMap, containerSecond, null, null, null, 'tdLeft', 'tdRight');
 
 		// Abstract -- 

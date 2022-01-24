@@ -74,7 +74,7 @@
 		font-size: 1.2em;
 	}
 	.detailBox{
-		font-size: 1.2em;
+		font-size: 1em;
 		margin: 7px;
 		padding: 7px;
 	}
@@ -82,13 +82,13 @@
 		padding: 11px;
 	}
 	.detailBox .tdRight{
-		min-width: 90px;
+		white-space: nowrap;
 	}
 	.detailBox img{
 		width: 290px;
 	}
 	#detailFoot p{
-		font-size: 1.2em;
+		font-size: 1em;
 	}
 }
 
@@ -100,10 +100,10 @@
 		margin: 07% auto;
 	}
 	#detailHeader{
-		font-size: 1.0em;
+		font-size: 1em;
 	}
 	.detailBox{
-		font-size: 1.0em;
+		font-size: 1em;
 		margin: 5px;
 		padding: 5px;
 	}
@@ -111,13 +111,13 @@
 		padding: 8px;
 	}
 	.detailBox .tdRight{
-		min-width: 80px;
+		white-space: nowrap;
 	}
 	.detailBox img{
 		width: 260px;
 	}
 	#detailFoot p{
-		font-size: 1.0em;
+		font-size: 1em;
 	}
 }
 
@@ -140,7 +140,7 @@
 		padding: 5px;
 	}
 	.detailBox .tdRight{
-		min-width: 60px;
+		white-space: nowrap;
 	}
 	.detailBox img{
 		width: 200px;
@@ -169,7 +169,7 @@
 		padding: 2px;
 	}
 	.detailBox .tdRight{
-		min-width: 40px;
+		white-space: nowrap;
 	}
 	.detailBox img{
 		width: 100px;

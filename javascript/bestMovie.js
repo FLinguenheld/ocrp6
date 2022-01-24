@@ -14,6 +14,9 @@ export class BestMovie extends Base{
 		this.#containerCover = document.getElementById('bestCover');
 	}
 
+	//
+// −− SHOW −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+	/* Fetches then builds the div with title, short abstract and cover */
 	async show(){
 
 		// Fetches --

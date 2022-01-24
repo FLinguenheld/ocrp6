@@ -88,7 +88,7 @@ export class Dom{
 	 * If a value is an array, it will be placed in a list (see addList)
 	 * Then returns the object */
 	static addTable(myMap, container=null, className=null, id=null,
-									 classTR=null, classTDLeft=null, classTDRight=null){
+						   classTR=null, classTDLeft=null, classTDRight=null){
 
 		const table = Dom.addElem('table', container, className, id);
 
